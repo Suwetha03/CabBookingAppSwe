@@ -12,10 +12,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { DriverFilterComponent } from './driver-filter/driver-filter.component';
 
 const allLinks:Routes = [
   {path:'adddriver',component:DriverComponent},
   {path:'viewdriverDetails',component:DriverListComponent},
+  {path:'viewbestdrivers',component:DriverFilterComponent}
 
 ]
 
@@ -28,7 +30,8 @@ const allLinks:Routes = [
     HomepageComponent,
     TripBookingComponent,
     UserComponent,
-    DriverListComponent
+    DriverListComponent,
+    DriverFilterComponent
   ],
   imports: [
     FormsModule,

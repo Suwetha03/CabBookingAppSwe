@@ -21,7 +21,7 @@
         <div class="form-group">
           <label for="licenceNo">Licence Number</label>
           <input type="text" class="form-control" id="licenceNo" name="licenceNo"
-          [(ngModel)]="c.licenceNo" required>
+          [(ngModel)]="c.licenceNo" placeholder=" Eg:abc123" required>
                     
         </div>
       </tr>
@@ -45,7 +45,7 @@
         <div class="form-group">
           <label for="category">Category</label>
           <input type="text" class="form-control" id="category" name="category"
-                 [(ngModel)]="c.category" placeholder="Enter Category Eg: Micro/Prime/Rental/Women's" required>
+                 [(ngModel)]="c.category" placeholder=" Eg: Micro/Prime/Rental/Women's" required>
         </div>
       </tr>
        <br>
@@ -54,7 +54,7 @@
         <div class="form-group">
           <label for="city">City</label>
           <input type="text" class="form-control" id="city" name="city"
-          [(ngModel)]="c.city" required>
+          [(ngModel)]="c.city" placeholder=" Eg: Chennai,Mumbai,Bangalore" required>
                     
         </div>
       </tr>
@@ -89,4 +89,4 @@
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     <div *ngIf="status == true" class="alert alert-success mt-3">Your details has been submitted successfully.</div>
-    <div *ngIf="status == false" class="alert alert-danger mt-3">An error occurred while providing.</div>
+    <div *ngIf="status == false" class="alert alert-danger mt-3">Driver Details was not Added!.</div>
