@@ -1,4 +1,5 @@
 export class DriverDTO {
+    driverId:number;
     driverName:string;
     licenceNo:string;
     rating:number;
@@ -9,6 +10,7 @@ export class DriverDTO {
 
 
      constructor(
+        driverId:number,
          driverName:string,
          licenceNo:string,
          rating:number,
@@ -19,6 +21,7 @@ export class DriverDTO {
 
      )
      {
+        this.driverId=driverId;
          this.driverName = driverName;
          this.licenceNo = licenceNo;
          this.rating = rating;  

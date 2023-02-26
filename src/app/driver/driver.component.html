@@ -18,21 +18,27 @@
     </tr>
     <br>
     <tr>
-        <div class="form-group">
-          <label for="licenceNo">Licence Number</label>
-          <input type="text" class="form-control" id="licenceNo" name="licenceNo"
-          [(ngModel)]="c.licenceNo" placeholder=" Eg:abc123" required>
-                    
-        </div>
+      <div class="form-group">
+        <label for="licenceNo">Licence Number</label>
+       <input type="text" class="form-control" id="licenceNo" name="licenceNo"
+              [(ngModel)]="c.licenceNo" placeholder="Enter Licence Number"  #licenceNo="ngModel" required pattern="[a-zA-Z]+[0-9]+" >
+         <div *ngIf="licenceNo.invalid">
+             <span style="color: red;" *ngIf="licenceNo.errors?.['required']">
+              Licence Number should be in Correct Format
+             </span>
+             <span style="color: red;" *ngIf="licenceNo.errors?.['pattern']">
+              Licence Number is not valid.
+             </span>
+           </div>
+     </div>
       </tr>
     <br>
      <div class="form-group">
                      <label for="rating">Rating</label>
-                    <input type="text" class="form-control" id="rating" name="rating"
-                           [(ngModel)]="c.rating" placeholder="Enter Rating"  #rating="ngModel" required pattern="[0-9]+">
+                    <input type="number" class="form-control" id="rating" name="rating"
+                           [(ngModel)]="c.rating" placeholder="Enter Rating"  #rating="ngModel" required pattern="[0-5] || [0.0-5.0]+">
                       <div *ngIf="rating.invalid">
                           <span style="color: red;" *ngIf="rating.errors?.['required']">
-          
                              Please Enter Valid Rating
                           </span>
                           <span style="color: red;" *ngIf="rating.errors?.['pattern']">
@@ -80,13 +86,17 @@
       <tr>
           <div class="form-group">
             <label for="nativeLanguage">Native Language</label>
-            <input type="text" class="form-control" id="nativeLanguage" name="nativeLanguage"
+            <input type="text" class="form-control" id="nativeLanguage"  #nativeLanguage="ngModel" name="nativeLanguage"
             [(ngModel)]="c.nativeLanguage" required>
-                      
+            <div *ngIf="nativeLanguage.invalid">
+              <span style="color: red;" *ngIf="nativeLanguage.errors?.['required']">
+               Native Language is Required
+              </span>
+            </div>      
           </div>
         </tr>
         <br>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     <div *ngIf="status == true" class="alert alert-success mt-3">Your details has been submitted successfully.</div>
-    <div *ngIf="status == false" class="alert alert-danger mt-3">Driver Details was not Added!.</div>
+    
